@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 async function connectDB() {
   try {
-    await mongoose.connect(
-      "mongodb+srv://mongoDB:YOi5yHIN7dQtSmF3@cluster0.87lu2oc.mongodb.net/restaurants"
-    );
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected to database");
 
     const restaurantSchema = new mongoose.Schema({
